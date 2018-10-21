@@ -19,9 +19,9 @@ namespace SiteParser.Implementations
             };
         }
 
-        public ISearchStrategy GetSearchStrategy(string parserName)
+        public ISearchStrategy GetSearchStrategy(string name)
         {
-            if (!_strategies.TryGetValue(parserName, out var parser))
+            if (!_strategies.TryGetValue(name, out var parser))
                 throw new ArgumentException("Invalid strategy name");
             return parser;
         }

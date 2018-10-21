@@ -28,9 +28,7 @@ namespace SiteParser.Implementations
             var tasks = filteredLinkDictionary.Where(item => item.Key.StartsWith(domainName))
                 .Select(item => Parse(item.Key, resultDictionary, domainName));
 
-            var runnedTasks = tasks.ToList();
-
-            await Task.WhenAll(runnedTasks);
+            await Task.WhenAll(tasks.ToList());
         }
     }
 }

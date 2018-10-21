@@ -21,14 +21,15 @@ namespace SiteParser
             var domain = $"{uri.Scheme}://{uri.Host}";
 
             var strategy = Factory.GetSearchStrategy("First");
-            //var strategy = _factory.GetSearchStrategy("Second");
-            //var strategy = _factory.GetSearchStrategy("Third");
+            //var strategy = Factory.GetSearchStrategy("Second");
+            //var strategy = Factory.GetSearchStrategy("Third");
 
             var parser = new Parser(strategy);
 
             var returnedLinks = new ConcurrentDictionary<string, string>();
 
             Console.WriteLine("Search started");
+
             await parser.Parse(address, returnedLinks, domain);
 
             foreach (var link in returnedLinks.OrderBy(it => it.Key))
